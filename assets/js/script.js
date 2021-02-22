@@ -1,31 +1,40 @@
 // Assignment code here
 
 var characterArray = ["abcdefghijklnmopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~" ]
-
-var passwordLength = Number(window.prompt("Please enter a numeric value for the passwordLength of your new password. Must be between 8-128 characters."));
-while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-  Number(window.prompt(("Please enter a numeric value for the passwordLength of your new password. Must be between 8-128 characters."));
-
- 
-var lowerPrompt = confirm("Would you like lowercase letters?");
-var upperPrompt = confirm("Would you like uppercase characters?");
-var numberPrompt = confirm("Would you like numeric characters?");
-var specialPrompt = confirm("Would you like special characters?");
-
-while (!upper && !lower && !numeric && !specialCharacter) {
-  alert("You must select at least one character type.");
-  lowerPrompt = confirm("Would you like lowercase letters?");
-  upperPrompt = confirm("Would you like uppercase characters?");
-  numberPrompt = confirm("Would you like numeric characters?");
-  specialPrompt = confirm("Would you like special characters?");
-}
+var input = "";
+var password = "";
 
 function generateNewPassword() {
-  var password "";
+    var passwordLength = Number(window.prompt("Please enter a numeric value for the passwordLength of your new password. Must be between 8-128 characters."));
+    while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+      Number(window.prompt(("Please enter a numeric value for the passwordLength of your new password. Must be between 8-128 characters."));
+  }
+  var lowerPrompt = false;
+  var upperPrompt = false;
+  var numberPrompt = false;
+  var specialPrompt = false;
 
-  var insert = {};
-  if (lowerPrompt) password += 
-}
+  while (true) {
+    lowerPrompt = confirm("Do you want lowercase letters in your password?");
+    upperPrompt = confirm("Do you want uppercase letters in your password?");
+    numberPrompt = confirm("Do you want numbers in your password?");
+    specialPrompt = confirm("Do you want special characters in your password?");
+    
+    break;
+  }
+
+  console.log("yesLower", lowerPrompt);
+  console.log("yesUpper", upperPrompt);
+  console.log("yesNumber", numberPrompt);
+  console.log("yesSpecial", specialPrompt);
+
+  lowerPrompt && (input += characterArray[0])
+  upperPrompt && (input += characterArray[1])
+  numberPrompt && (input += characterArray[2])
+  specialPrompt && (input += characterArray[3])
+
+  var password = "";
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -36,7 +45,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = "";
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
